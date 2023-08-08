@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UDF Programme</title>
+</head>
+<body>
+    <center>
+        <h1>JavaScript program to find which number is greater in 4 numbers using ledder if else.(using no return with parameter function)</h1>
+        <br/><br/>
+        <h3>Please Enter value in below box</h3>
+        <input type="text" id="A"/>
+        <input type="text" id="B"/>
+        <input type="text" id="C"/>
+        <input type="text" id="D"/>
+        
+        <br/><br/>
+        <input type="submit" onclick="def()"/>
+        <p><u>Output will be display below.</u></p>
+
+        <h2 id="output"></h2>
+
+        <script>
+            function myFunction(number1,number2,number3,number4){
+                if (number1 == number2  && number2 == number3 && number3 == number4){
+                    document.getElementById('output').innerHTML = number1 + ' , ' + number2 + ' , ' + number3 + " and " + number4 + " Are Same Numbers";
+                }
+                else if (number1 > number2 && number1 > number3 && number1 > number4) {
+                    document.getElementById('output').innerHTML = number1 + " is greater than " + number2 + ' , ' + number3 + " and " + number4;
+                }
+                else if (number2 > number1 && number2>number3 && number2>number4) {
+                    document.getElementById('output').innerHTML = number2 + " is greater than " + number1 + ' , ' + number2 + " and " + number3;
+                }
+                else if (number3 > number1 && number3 > number2 && number3 > number4) {
+                    document.getElementById('output').innerHTML = number3 + " is greater than " + number1 + ' , ' + number2 + " and " + number4;
+                }
+                else {
+                    document.getElementById('output').innerHTML = number4 + " is greater than " + number1 + ' , ' + number2 + " and " + number3;
+                }
+            }
+            function def(){
+                let a = parseInt(document.getElementById('A').value);
+                let b = parseInt(document.getElementById('B').value);
+                let c = parseInt(document.getElementById('C').value);
+                let d = parseInt(document.getElementById('D').value);
+                myFunction(a,b,c,d);
+            }
+
+        </script>
+    </center>
+</body>
+</html>

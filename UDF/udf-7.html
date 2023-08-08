@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UDF Programme</title>
+</head>
+<body>
+    <center>
+        <h1>JavaScript program to add two number of addition, subtraction, multiplication, division (using simple function)</h1>
+        <br/><br/>
+        <h3>Please Enter value in below box</h3>
+        <input type="text" id="A"/>
+        <input type="text" id="B"/>
+        <p>1. for Addition</p>
+        <p>2. for Subtraction</p>
+        <p>3. for Multiplication</p>
+        <p>4. for Division</p>
+        <br/><br/>
+        <input type="number" id="C"/>
+
+        <br/><br/>
+        <input type="submit" onclick="myFunction()">
+        <p><u>Output will be display below.</u></p>
+        <h2 id="output"></h2>
+        <script>
+            function myFunction(){
+
+                let number1 = parseInt(document.getElementById('A').value);
+                let number2 = parseInt(document.getElementById('B').value);
+                let math = parseInt(document.getElementById('C').value);
+
+                switch (math) {
+                    case 1:
+                        document.getElementById('output').innerHTML = number1 + number2;
+                        break;
+                    case 2:
+                        document.getElementById('output').innerHTML = number1 - number2;
+                        break;
+                    case 3:
+                        document.getElementById('output').innerHTML = number1 * number2;
+                        break;
+                    case 4:
+                        document.getElementById('output').innerHTML = number1 / number2;
+                        break;
+                }
+                
+            }
+        </script>
+    </center>
+</body>
+</html>

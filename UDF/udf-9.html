@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UDF Programme</title>
+</head>
+<body>
+    <center>
+        <h1>JavaScript program to decide that you are eligible for voting? (using all functions)</h1>
+        <br/><br/>
+        <h3>Please Enter your age in below box</h3>
+        <input type="text" id="A"/>
+        <br/><br/>
+        <input type="submit" onclick="myFunction()">
+        <p><u>Output will be display below.</u></p>
+        <h2 id="output"></h2>
+        <script>
+            function myFunction(){
+
+                let number1 = parseInt(document.getElementById('A').value);
+                if (number1 >= 18){
+                    document.getElementById('output').innerHTML = "You are eligible to vote";
+                }
+                else {
+                    document.getElementById('output').innerHTML = "You can't vote as you are minor";
+                }
+                
+            }
+        </script>
+    </center>
+</body>
+</html>

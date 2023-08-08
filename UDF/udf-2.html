@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UDF Programme</title>
+</head>
+<body>
+    <center>
+        <h1>JavaScript program to check number positive and negetive? (using no return with parameter)</h1>
+        <br/><br/>
+        <h3>Please Enter value in below box</h3>
+        <input type="text" id="A"/>
+        
+        <br/><br/>
+        <input type="submit" onclick="def()"/>
+        <p><u>Output will be display below.</u></p>
+
+        <h2 id="output"></h2>
+
+        <script>
+            function myFunction(number1){
+                if (number1 == 0){
+                    document.getElementById('output').innerHTML = number1 + " is Neutral value";
+                }
+                else if (number1 > 0) {
+                    document.getElementById('output').innerHTML = number1 + " is Positive value";
+                }
+                else {
+                    document.getElementById('output').innerHTML = number1 + " is Negative value";
+                }
+            }
+            function def(){
+                let a = parseInt(document.getElementById('A').value);
+                myFunction(a);
+            }
+
+        </script>
+    </center>
+</body>
+</html>
