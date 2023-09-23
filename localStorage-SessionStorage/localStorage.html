@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Document</title>
+</head>
+<body>
+<script>
+
+//Set Item in Local Storage
+
+let vehicle = {
+type: "Two Wheeler",
+make: "Hero",
+fuel: "Petrol",
+cc: "100 cc",
+seating: "Two",
+Registration: "Valid",
+insurence: "Valid",
+};
+
+//Set in Local Storage
+localStorage.setItem("vehicle",JSON.stringify(vehicle));
+
+//get Data in Console
+let vehicleData = localStorage.getItem("vehicle");
+console.log("vehicleData",vehicleData);
+
+</script>
+</body>
+</html>

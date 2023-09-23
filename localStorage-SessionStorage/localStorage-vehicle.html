@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+<h5>Hi Welcome</h5>
+<p>Local Storage, Check console</p>
+<p id="vehicleInfo"></p>
+</body>
+<script>
+
+let volkswagon = {
+year:2015,
+fuel:"deisel",
+seating:5,
+color:"Violet",
+validity:"valid",
+}
+
+let hyundai = {
+year:2017,
+fuel:"deisel",
+seating:5,
+color:"grey",
+validity: "valid",
+}
+
+let tata = {
+year:2019,
+fuel:"deisel",
+seating:5,
+color:"black",
+validity: "valid",
+}
+
+let mahindra = {
+year:2021,
+fuel:"deisel",
+seating:4,
+color:"black",
+validity: "valid",
+}
+
+localStorage.setItem("volkswagon", JSON.stringify(volkswagon));
+localStorage.setItem("hyundai", JSON.stringify(hyundai));
+localStorage.setItem("tata",JSON.stringify(tata));
+localStorage.setItem("mahindra",JSON.stringify(mahindra));
+
+document.getElementById("vehicleInfo") = localStorage.getItem("volkswagon");
+
+</script>
+</html>
