@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p id='background'>Back Ground color change</p>
+</body>
+<script>
+
+//https://www.codespeedy.com/how-to-change-background-color-every-seconds-in-javascript/
+
+setInterval(
+  function() {
+    var randomColor = Math.floor(Math.random() * 16777215).toString(16);
+    document.body.style.backgroundColor = "#" + randomColor;
+  }, 1000);
+</script>
+</html>
