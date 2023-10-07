@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>MAP & REDUCE Method</h2>
+</body>
+<script>
+// const array = [2, 4, 6, 8];
+
+// // 0 + 1 + 2 + 3 + 4
+// const initialValue = 0;
+// const sumWithInitial = array.reduce((accumulator, currentValue) => accumulator + currentValue, initialValue);
+
+// console.log(sumWithInitial);
+// // Expected output: 10
+
+const value = [0, 4, 8, 16];
+
+// Pass a function to map
+const map = array.map((x) => x * 2);
+
+console.log(map);
+// Expected output: Array [2, 8, 18, 32]
+
+</script>
+</html>
