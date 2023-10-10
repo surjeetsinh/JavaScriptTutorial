@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registartion Form</title>
+</head>
+<body>
+    <div>
+        <center>
+            <h1>Trip Calculation</h1>
+            <p>Please Enter data for Trip Calculation</p>
+            <hr>
+            <p>Distance (KM) <input id="distance" type="text" placeholder="Distance (KM)"></p>
+            <p>Fuel Price Per Liter <input id="fuel" type="text" placeholder="Fuel Price per Liter"></p>
+            <p>Liters per KM <input id="litersPerKm" type="number" placeholder="Liters Per KM"></p>
+            <p>Your Total cost is <input id="cost" type="text" placeholder="Wait till data process" readonly></p>
+            <button type="submit" onclick="getUserinfo()">Submit</button>
+            </center>
+    </div>
+</body>
+<script>
+   function totalCost() {
+    let distance = document.getElementById("distance").value;
+    const finalCost = (litersPerKm*fuel/100)*distance;
+   }
+</Script>
+</html>
