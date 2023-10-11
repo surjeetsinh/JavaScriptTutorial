@@ -89,12 +89,12 @@
 </body>
 <script>
     function calculate() {
-        let distance = document.getElementById("distance").value;
-        let fuelPrice = document.getElementById("fuelPrice").value;
-        let fuelTotal = document.getElementById("fuelTotal").value;
-        let tollCharges = document.getElementById("tollCharges").value;
-        const persons = document.getElementById("persons").value;
-        const otherCost = document.getElementById("otherCost").value;
+        let distance = Number(document.getElementById("distance").value);
+        let fuelPrice = Number(document.getElementById("fuelPrice").value);
+        let fuelTotal = Number(document.getElementById("fuelTotal").value);
+        let tollCharges = Number(document.getElementById("tollCharges").value);
+        const persons = Number(document.getElementById("persons").value);
+        const otherCost = Number(document.getElementById("otherCost").value);
         
         const total = ((fuelPrice * fuelTotal) + tollCharges + otherCost) * 1;
 
