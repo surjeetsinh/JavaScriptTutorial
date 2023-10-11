@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>Trip Calculator</h1>
+        <h3>Please Enter Required Data</h3>
+        <hr>
+        <br>
+        <br>
+        <!-- <div>
+            <p>DISTANCE <input type="text" id="distance" placeholder="Distance in KM"></p>
+            <p>PRICE OF FUEL <input type="text" id="fuelPrice" placeholder="Price per Liter"></p>
+            <p>TOTAL FUEL USED IN TRIP <input type="text" id="FuelTotal" placeholder="Fuel in Liter"></p>
+            <p>TOLL CHARGES <input type="text" id="tollCharges" placeholder="Total TOLL Charges"></p>
+            <p>PERSONS <input type="text" id="persons" placeholder="Number of Persons"></p>
+            <p>OTHER COST <input type="text" id="otherCost" placeholder="Other Charges If any"></p>
+        </div> -->
+        <table>
+            <ul>
+                <li>DISTANCE</li>
+                <li>PRICE OF FUEL</li>
+                <li>TOTAL FUEL USED IN TRIP</li>
+                <li>TOLL CHARGES</li>
+                <li>PERSONS</li>
+                <li>OTHER COST</li>
+            </ul>
+            <ul>
+                <li><input type="text" id="distance" placeholder="Distance in KM"></li>
+                <li><input type="text" id="fuelPrice" placeholder="Price per Liter"></li>
+                <li><input type="text" id="fuelTotal" placeholder="Fuel in Liter"></li>
+                <li><input type="text" id="tollCharges" placeholder="Total TOLL Charges"></li>
+                <li><input type="text" id="persons" placeholder="Number of Persons"></li>
+                <li><input type="text" id="otherCost" placeholder="Other Charges If any"></li>
+            </ul>
+            <button type="submit" id="submit" onclick="calculate()">Submit</button>
+        </table>
+    </center>
+    <h5 id="test"></h5>
+    <style>
+        body{
+            align-content: center;
+        }
+        h1,h3 {
+            color: burlywood;
+        }
+        div{
+            width: 50%;
+            background-color: antiquewhite;
+        }
+        p {
+            text-align: left;
+            color:crimson;
+            margin-left: 40px;
+            
+        }
+        table{
+            background-color: aqua;
+
+        }
+       ul{
+        list-style: none;
+        display: inline-block;
+       }
+       li{
+        color:cadetblue;
+        text-align: left;
+        margin-top: 15px;
+        margin-bottom: 15px;
+       }
+       input{
+        border-radius: 8px;
+        text-align: center;
+        color:cadetblue;
+       }
+       button{
+        color: black;
+        background-color:burlywood;
+        border-radius: 8px;
+        display: flex;
+        padding: 5px;
+       }
+
+    </style>
+</body>
+<script>
+    function calculate() {
+        let distance = document.getElementById("distance").value;
+        let fuelPrice = document.getElementById("fuelPrice").value;
+        let fuelTotal = document.getElementById("fuelTotal").value;
+        let tollCharges = document.getElementById("tollCharges").value;
+        const persons = document.getElementById("persons").value;
+        const otherCost = document.getElementById("otherCost").value;
+        
+        const total = ((fuelPrice * fuelTotal) + tollCharges + otherCost) * 1;
+
+        const perPerson = ((fuelPrice*fuelTotal) + tollCharges + otherCost ) / persons ;
+        alert("Total Expence pf Trip is " + total +","+"Per person cost is " + perPerson)
+        const test = document.getElementById("test").innerHTML = typeof tollCharges;
+    } 
+</script>
+</html>
