@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>School Result</title>
+</head>
+<body>
+    <h1>Student Result</h1>
+    <p>Enter the student's score:</p>
+    <input type="text" id="scoreInput" />
+    <button onclick="checkResult()">Check Result</button>
+    <p id="result"></p>
+
+    <script>
+        function checkResult() {
+            const scoreInput = document.getElementById('scoreInput');
+            const resultElement = document.getElementById('result');
+
+            const score = parseFloat(scoreInput.value);
+
+            if ((score == 0) || (score > 100)) {
+                resultElement.textContent = 'Please enter a valid number.';
+                return;
+            }
+
+            let grade;
+
+            switch (true) {
+                case score >= 90:
+                    grade = 'A+';
+                    break;
+                case score >= 80:
+                    grade = 'A';
+                    break;
+                case score >= 70:
+                    grade = 'B';
+                    break;
+                case score >= 60:
+                    grade = 'C';
+                    break;
+                case score >= 50:
+                    grade = 'D';
+                    break;
+                case score >= 40:
+                    grade = 'D-';
+                    break;
+                default:
+                    grade = 'F';
+                    break;
+            }
+
+            resultElement.textContent = `The student's grade is: ${grade}`;
+        }
+    </script>
+</body>
+</html>
