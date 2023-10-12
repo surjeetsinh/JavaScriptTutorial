@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    class Transaction {
+        constructor(amount, type) {
+            this.amount = amount;
+            this.type = type; // 'deposit' or 'withdraw'
+            this.timestamp = new Date();
+        }
+    }
+
+    class Account {
+        constructor(accountNumber, accountHolder, initialBalance = 0) {
+            this.accountNumber = accountNumber;
+            this.accountHolder = accountHolder;
+            this.balance = initialBalance;
+            this.transactions = [];
+        }
+
+        deposit(amount) {
+            if (amount > 0) {
+                this.balance += amount;
+                this.transactions.push(new Transaction(amount, 'deposit'));
+                return `Deposited Rs${amount}. New balance: Rs${this.balance}`;
+            }
+        }
+
+        withdraw(amount) {
+            if (amount > 0 && amount <= this.balance) {
+                this.balance -= amount;
+                this.transactions.push(new Transaction(amount, 'withdraw'));
+                return `Withdrawn Rs${amount}. New balance: Rs${this.balance}`;
+            } else {
+                return 'Insufficient funds';
+            }
+        }
+
+        getBalance() {
+            return `Account balance for ${this.accountHolder}: Rs${this.balance}`;
+        }
+
+        getTransactionHistory() {
+            return this.transactions;
+        }
+    }
+
+    class Bank {
+        constructor() {
+            this.accounts = [];
+            this.accountNumberCounter = 1;
+        }
+
+        createAccount(accountHolder, initialBalance = 0) {
+            const account = new Account(this.accountNumberCounter++, accountHolder, initialBalance);
+            this.accounts.push(account);
+            return account;
+        }
+
+        getAccount(accountNumber) {
+            return this.accounts.find(account => account.accountNumber === accountNumber);
+        }
+    }
+
+    // Example usage:
+    const bank = new Bank();
+    const account1 = bank.createAccount('Surjeetsinh', 1000);
+    const account2 = bank.createAccount('Rathod', 500);
+
+    console.log(account1.deposit(200));
+    console.log(account1.withdraw(300));
+
+    console.log(account2.deposit(100));
+    console.log(account2.withdraw(700));
+
+    console.log(account1.getBalance());
+    console.log(account2.getBalance());
+
+    console.log(account1.getTransactionHistory());
+    console.log(account2.getTransactionHistory());
+
+</script>
+
+</html>
