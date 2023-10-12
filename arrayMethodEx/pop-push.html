@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Methods</title>
+</head>
+<body>
+    <h1>JavaScript Array Method</h1>
+    <p>Array Method Example of POP-PUSH</p>
+    <h3>POP Method</h3>
+    <p id="pop-data"></p>
+    <P id="pop-output"></P>
+    <hr>
+    <h3>PUSH Method</h3>
+    <p id="push-data"></p>
+    <P id="push-output"></P>
+    <p id="display"></p>
+</body>
+<script>
+    //pop array method removes last element from array & push array method which gives
+    let oldStudents = ["surjeetsinh","priyal","krishna","puran","harshit","jay"];
+    let newStudents = ["JAYDEEP","PAVAN","UDAY","MAN","PARTH","KRUSHAL"];
+    document.getElementById("pop-data").innerHTML = oldStudents; 
+    document.getElementById("pop-output").innerHTML = "poped out element is " + oldStudents.pop();
+
+    document.getElementById("push-data").innerHTML = "As of now element is : "+ newStudents; 
+    document.getElementById("push-output").innerHTML = "post push() method total element is updated as " + newStudents.push(oldStudents.pop());
+    document.getElementById("display").innerHTML = "with push() all element is " + newStudents;
+</script>
+</html>
