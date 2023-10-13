@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Date Function</h1>
+<h2>getMonth()</h2>
+
+<p id="display"></p>
+
+<script>
+const runningYear = new Date("2023-3-1");
+
+//it will automatically display month but by minus one value with "getMonth()"
+//If we wants March it will print 2 instead of 3
+document.getElementById("display").innerHTML = runningYear.getMonth() + " (It will display month by lesser one value)";
+</script>
+
+</body>
+</html>

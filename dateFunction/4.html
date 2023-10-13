@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Date Function</h1>
+<h2>getMonth()</h2>
+
+<p id="display"></p>
+
+<script>
+    const months = ["January","February","March","April","May","Jun","July","August","September","October","November","December"];
+    const a = new Date("1-4-2023");
+    const month = months[a.getDate()];
+
+document.getElementById("display").innerHTML = month;
+</script>
+
+</body>
+</html>
