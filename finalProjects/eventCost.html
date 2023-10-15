@@ -1,63 +1,42 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Movie Search App</title>
+    <title>Event Cost Manager</title>
 </head>
-
 <body>
-    <center>
+    <h1>Event Cost Manager</h1>
+    
+    <label for="eventName">Event Name: </label>
+    <input type="text" id="eventName"><br><br>
 
-        <h1>Movie Search</h1>
-        <input type="text" id="searchInput" placeholder="Enter a movie title">
-        <button id="searchButton">Search</button>
-        <div id="movieResults"></div>
-    </center>
+    <label for="eventMembers">Event Members: </label>
+    <input type="number" id="eventMembers"><br><br>
+
+    <label for="lunchPrice">Lunch Price: Rs</label>
+    <input type="number" id="lunchPrice"><br><br>
+
+    <label for="advancedPayment">Advanced Payment: Rs</label>
+    <input type="number" id="advancedPayment"><br><br>
+
+    <button onclick="calculateCost()">Calculate Cost</button>
+
+    <p id="totalCost"></p>
+    <p id="remainingPayment"></p>
 </body>
 <script>
-    // Replace 'YOUR_API_KEY' with your actual OMDB API key.
-    const apiKey = 'https://my-json-server.typicode.com/horizon-code-academy/fake-movies-api/movies';
-    const searchButton = document.getElementById('searchButton');
-    const searchInput = document.getElementById('searchInput');
-    const movieResults = document.getElementById('movieResults');
+    function calculateCost() {
+        const eventName = document.getElementById("eventName").value;
+        const eventMembers = parseInt(document.getElementById("eventMembers").value);
+        const lunchPrice = parseFloat(document.getElementById("lunchPrice").value);
+        const advancedPayment = parseFloat(document.getElementById("advancedPayment").value);
 
-    searchButton.addEventListener('click', searchMovies);
+        const discount = 0.10; // 10% discount
 
-    function searchMovies() {
-        const searchTerm = searchInput.value;
-        const apiUrl = `https://classroom.google.com/c/NjE2MzE5MDQ0Mzcy/a/NjMwNDI0MzEwNjIw/details=${title}&s=${searchTerm}`;
+        const totalCost = eventMembers * lunchPrice * (1 - discount);
+        const remainingPayment = totalCost - advancedPayment;
 
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => {
-                if (data.Response === 'True') {
-                    displayMovies(data.Search);
-                } else {
-                    movieResults.innerHTML = "No results found.";
-                }
-            })
-            .catch(error => {
-                console.error(error);
-                movieResults.innerHTML = "An error occurred.";
-            });
+        document.getElementById("totalCost").textContent = `Total cost for ${eventName}: Rs${totalCost} Post 10% Discount`;
+        document.getElementById("remainingPayment").textContent = `Remaining payment: Rs${remainingPayment}`;
     }
-
-    function displayMovies(movies) {
-        let movieHTML = '';
-        movies.forEach(movie => {
-            movieHTML += `
-            <div class="movie">
-                <h2>${movie.Title}</h2>
-                <p>Year: ${movie.Year}</p>
-                <p>Type: ${movie.Type}</p>
-                <img src="${movie.Poster}" alt="${movie.Title} poster">
-            </div>
-        `;
-        });
-
-        movieResults.innerHTML = movieHTML;
-    }
-
 </script>
-
 </html>
