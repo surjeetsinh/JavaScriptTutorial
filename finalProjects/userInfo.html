@@ -1,63 +1,43 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Movie Search App</title>
+    <title>User Location & Online Status</title>
 </head>
-
 <body>
-    <center>
+    <h1>User Location & Online Status</h1>
 
-        <h1>Movie Search</h1>
-        <input type="text" id="searchInput" placeholder="Enter a movie title">
-        <button id="searchButton">Search</button>
-        <div id="movieResults"></div>
-    </center>
+    <p id="location"></p>
+    <p id="status">Status: <span id="statusText">Offline</span></p>
 </body>
 <script>
-    // Replace 'YOUR_API_KEY' with your actual OMDB API key.
-    const apiKey = 'https://my-json-server.typicode.com/horizon-code-academy/fake-movies-api/movies';
-    const searchButton = document.getElementById('searchButton');
-    const searchInput = document.getElementById('searchInput');
-    const movieResults = document.getElementById('movieResults');
+    function updateOnlineStatus() {
+        const statusText = document.getElementById("statusText");
+        if (navigator.onLine) {
+            statusText.textContent = "Online";
+            statusText.style.color = "green";
+        } else {
+            statusText.textContent = "Offline";
+            statusText.style.color = "red";
+        }
+    }
 
-    searchButton.addEventListener('click', searchMovies);
-
-    function searchMovies() {
-        const searchTerm = searchInput.value;
-        const apiUrl = `https://classroom.google.com/c/NjE2MzE5MDQ0Mzcy/a/NjMwNDI0MzEwNjIw/details=${title}&s=${searchTerm}`;
-
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => {
-                if (data.Response === 'True') {
-                    displayMovies(data.Search);
-                } else {
-                    movieResults.innerHTML = "No results found.";
-                }
-            })
-            .catch(error => {
-                console.error(error);
-                movieResults.innerHTML = "An error occurred.";
+    function getLocation() {
+        if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+                const location = `Latitude: ${latitude}, Longitude: ${longitude}`;
+                document.getElementById("location").innerHTML = location;
+            }, function(error) {
+                document.getElementById("location").innerHTML = "Location not available.";
             });
+        } else {
+            document.getElementById("location").innerHTML = "Geolocation is not supported by your browser.";
+        }
     }
 
-    function displayMovies(movies) {
-        let movieHTML = '';
-        movies.forEach(movie => {
-            movieHTML += `
-            <div class="movie">
-                <h2>${movie.Title}</h2>
-                <p>Year: ${movie.Year}</p>
-                <p>Type: ${movie.Type}</p>
-                <img src="${movie.Poster}" alt="${movie.Title} poster">
-            </div>
-        `;
-        });
-
-        movieResults.innerHTML = movieHTML;
-    }
+    updateOnlineStatus();
+    getLocation();
 
 </script>
-
 </html>
