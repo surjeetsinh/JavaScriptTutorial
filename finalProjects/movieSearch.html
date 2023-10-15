@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Movie Search App</title>
+</head>
+
+<body>
+    <center>
+
+        <h1>Movie Search</h1>
+        <input type="text" id="searchInput" placeholder="Enter a movie title">
+        <button id="searchButton">Search</button>
+        <div id="movieResults"></div>
+    </center>
+</body>
+<script>
+    // Replace 'YOUR_API_KEY' with your actual OMDB API key.
+    const apiKey = 'https://my-json-server.typicode.com/horizon-code-academy/fake-movies-api/movies';
+    const searchButton = document.getElementById('searchButton');
+    const searchInput = document.getElementById('searchInput');
+    const movieResults = document.getElementById('movieResults');
+
+    searchButton.addEventListener('click', searchMovies);
+
+    function searchMovies() {
+        const searchTerm = searchInput.value;
+        const apiUrl = `https://classroom.google.com/c/NjE2MzE5MDQ0Mzcy/a/NjMwNDI0MzEwNjIw/details=${title}&s=${searchTerm}`;
+
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                if (data.Response === 'True') {
+                    displayMovies(data.Search);
+                } else {
+                    movieResults.innerHTML = "No results found.";
+                }
+            })
+            .catch(error => {
+                console.error(error);
+                movieResults.innerHTML = "An error occurred.";
+            });
+    }
+
+    function displayMovies(movies) {
+        let movieHTML = '';
+        movies.forEach(movie => {
+            movieHTML += `
+            <div class="movie">
+                <h2>${movie.Title}</h2>
+                <p>Year: ${movie.Year}</p>
+                <p>Type: ${movie.Type}</p>
+                <img src="${movie.Poster}" alt="${movie.Title} poster">
+            </div>
+        `;
+        });
+
+        movieResults.innerHTML = movieHTML;
+    }
+
+</script>
+
+</html>

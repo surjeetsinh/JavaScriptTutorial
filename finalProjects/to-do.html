@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>To-Do List</title>
+</head>
+
+<body>
+    <center>
+        <h1>My To-Do List</h1>
+        <div>
+            <input type="text" id="task" placeholder="Add a new task">
+            <button id="add">Add</button>
+        </div>
+        <ul id="taskList">
+            <!-- Tasks will be added here dynamically -->
+        </ul>
+    </center>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const taskInput = document.getElementById("task");
+        const addButton = document.getElementById("add");
+        const taskList = document.getElementById("taskList");
+
+        addButton.addEventListener("click", addTask);
+
+        function addTask() {
+            const taskText = taskInput.value;
+            if (taskText.trim() !== "") {
+                const li = document.createElement("li");
+                li.textContent = taskText;
+                taskList.appendChild(li);
+                taskInput.value = "";
+                li.addEventListener("click", removeTask);
+            }
+        }
+
+        function removeTask() {
+            this.parentNode.removeChild(this);
+        }
+
+        taskInput.addEventListener("keypress", function (e) {
+            if (e.key === "Enter") {
+                addTask();
+            }
+        });
+    });
+
+</script>
+
+</html>
