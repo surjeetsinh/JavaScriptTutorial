@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <br>
+        <h1>Random Color Generate and Background change every 10 sec</h1>
+        <p id='background'>Color Change</p>
+    </center>
+
+</body>
+<script>
+    //Set Interval to change colour in every 10 sec.
+    setInterval(
+        function () {
+            let colorCode = Math.floor(Math.random() * 16777215).toString(16);
+            document.body.style.backgroundColor = "#" + colorCode;
+        }, 10000);
+</script>
+</html>
