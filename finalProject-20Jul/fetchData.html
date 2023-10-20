@@ -63,21 +63,6 @@
         }
     }
 
-
-    // ******************   Color Generator ******************************//
-
-    let color = document.getElementById("color");
-
-    setInterval(function Generator() {
-        let randomNumber = "";
-        for (let i = 0; i < 6; i++) {
-            randomNumber += Math.floor(Math.random() * 10);
-        }
-        console.log(randomNumber);
-
-        color.style.backgroundColor = "#" + randomNumber
-    }, 10000);
-
 </script>
 
 </html>
